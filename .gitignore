@@ -1,0 +1,36 @@
+# --- Engine-Generated Folders ---
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+# Ensure plugin binaries/intermediate are also ignored
+Plugins/**/Binaries/
+Plugins/**/Intermediate/
+
+# --- IDE-Specific (VS, Rider, VS Code) ---
+.vs/
+.idea/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+*.code-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.vscode/ipch/
+
+# --- Compiled Artifacts ---
+*.obj
+*.o
+*.pch
+*.gch
+*.dll
+*.exe
+*.out
+*.app
+*.dylib
+*.so
