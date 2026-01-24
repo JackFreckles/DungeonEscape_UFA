@@ -1,6 +1,24 @@
-# DungeonEscape_UFA
+# Project 2 -  DungeonEscape_UFA
 
 Developed with Unreal Engine 5
 
-(Still in progress)
-2nd project out of 4 from a Udemy course. I am going through this course to learn the ins and outs of the UE5 so that I'll have enough knowledge to make games full time. I will be working on this when I have time to outside of schoolwork and my job. 
+## Project Overview
+A first person dungeon style prototype focused on player interaction, simple inventory logic, and environmental puzzles.
+
+## Planned Features
+- Inventory system used internally to track collected items
+- Interactable environment elements such as doors and pressure plates
+- Doors that open based on player interaction, object placement, or trigger conditions
+- Puzzle based progression using environmental triggers
+- Basic dungeon style level layout and traversal challenges
+
+## Implemented Features
+- Created an initial test level for gameplay experimentation
+- Set up basic world lighting including directional light and ambient lighting
+- Blocked out a simple test environment using basic geometric shapes
+- Prepared the level for early interaction and gameplay testing
+
+## What I’m Learning
+- Designing gameplay systems that interact through shared state
+- Using triggers and collision to drive gameplay events
+- Structuring gameplay logic using Unreal Engine systems
