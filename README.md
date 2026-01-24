@@ -2,6 +2,8 @@
 
 Developed with Unreal Engine 5
 
+This repository contains the second of four small gameplay projects completed as part of a Udemy course that's focused on learning how to use Unreal Engine and gameplay programming fundamentals
+
 ## Project Overview
 A first person dungeon style prototype focused on player interaction, simple inventory logic, and environmental puzzles.
 
