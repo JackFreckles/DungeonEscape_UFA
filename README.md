@@ -9,8 +9,8 @@ A first person dungeon style prototype focused on player interaction, simple inv
 
 ## Planned Features
 - Inventory system used internally to track collected items
-- Interactable environment elements such as doors and pressure plates
-- Doors that open based on player interaction, object placement, or trigger conditions
+- Ability to collect items to place in internally tracked inventory
+- Doors that open based on player placed objects
 - Puzzle based progression using environmental triggers
 - Basic dungeon style level layout and traversal challenges
 
@@ -19,6 +19,8 @@ A first person dungeon style prototype focused on player interaction, simple inv
 - Set up basic world lighting including directional light and ambient lighting
 - Blocked out a simple test environment using basic geometric shapes
 - Prepared the level for early interaction and gameplay testing
+- Interactable pressure plates for opening doors
+- Doors that open based on player interaction with pressure plate
 
 ## What I’m Learning
 - Designing gameplay systems that interact through shared state
