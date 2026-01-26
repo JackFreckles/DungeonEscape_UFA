@@ -20,9 +20,9 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+private:
+	UPROPERTY(VisibleAnywhere)
+	bool ShouldMove = false;
 
 	UPROPERTY(EditAnywhere)
 	FVector MoveOffset;
@@ -30,13 +30,19 @@ public:
 	UPROPERTY(EditAnywhere)
 	float MoveTime = 4.0f;
 
-	UPROPERTY(EditAnywhere)
-	bool ShouldMove = false;
-
 	UPROPERTY(VisibleAnywhere)
 	bool ReachedTarget = false;
 
 	FVector TargetLocation;
+
 	FVector StartLocation;
 
+public:	
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	bool GetShouldMove();
+
+	void SetShouldMove(bool NewShouldMove);
+	
 };
