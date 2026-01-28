@@ -59,6 +59,9 @@ void ADungeonEscape_UFACharacter::SetupPlayerInputComponent(UInputComponent* Pla
 		// Looking/Aiming
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ADungeonEscape_UFACharacter::LookInput);
 		EnhancedInputComponent->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &ADungeonEscape_UFACharacter::LookInput);
+
+		// Interacting
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ADungeonEscape_UFACharacter::Interact);
 	}
 	else
 	{
@@ -117,4 +120,9 @@ void ADungeonEscape_UFACharacter::DoJumpEnd()
 {
 	// pass StopJumping to the character
 	StopJumping();
+}
+
+void ADungeonEscape_UFACharacter::Interact()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Interaction Action working!!"));
 }
