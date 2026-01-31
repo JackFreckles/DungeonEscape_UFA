@@ -8,9 +8,6 @@ This repository contains the second of four small gameplay projects completed as
 A first person dungeon style prototype focused on player interaction, simple inventory logic, and environmental puzzles.
 
 ## Planned Features
-- Inventory system used internally to track collected items
-- Ability to collect items to place in internally tracked inventory
-- Doors that open based on player placed objects
 - Puzzle based progression using environmental triggers
 - Basic dungeon style level layout and traversal challenges
 
@@ -21,6 +18,9 @@ A first person dungeon style prototype focused on player interaction, simple inv
 - Prepared the level for early interaction and gameplay testing
 - Interactable pressure plates for opening doors
 - Doors that open based on player interaction with pressure plate
+- Inventory system used internally to track collected items
+- Ability to collect items to place in internally tracked inventory
+- Doors that open based on player placed objects
 
 ## What I’m Learning
 - Designing gameplay systems that interact through shared state
