@@ -26,3 +26,7 @@ void ACollectableItem::Tick(float DeltaTime)
 
 }
 
+FString ACollectableItem::GetItemName()
+{
+	return ItemName;
+}
