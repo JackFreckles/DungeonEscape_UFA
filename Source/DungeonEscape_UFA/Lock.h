@@ -47,4 +47,6 @@ public:
 
 	void SetIsKeyPlaced(bool NewIsKeyPlaced);
 
+	FString GetKeyItemName();
+
 };

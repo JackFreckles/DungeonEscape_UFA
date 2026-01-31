@@ -50,3 +50,8 @@ void ALock::SetIsKeyPlaced(bool NewIsKeyPlaced)
 
 	KeyItemMesh->SetVisibility(NewIsKeyPlaced);
 }
+
+FString ALock::GetKeyItemName()
+{
+	return KeyItemName;
+}
