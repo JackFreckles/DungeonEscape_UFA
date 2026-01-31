@@ -5,6 +5,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+
+#include "Lock.h"
+#include "CollectableItem.h"
+
 #include "DungeonEscape_UFACharacter.generated.h"
 
 class UInputComponent;
@@ -83,6 +87,15 @@ protected:
 
 	/** Set up input action bindings */
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
+
+	UPROPERTY(EditAnywhere)
+	float MaxInteractionDistance = 300.0f;
+
+	UPROPERTY(EditAnywhere)
+	float InteractionSphereRadius = 30.0f;
+
+	UPROPERTY(VisibleAnywhere)
+	TArray<FString> HeldItems;
 	
 
 public:

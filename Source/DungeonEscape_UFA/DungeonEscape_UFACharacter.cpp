@@ -124,5 +124,70 @@ void ADungeonEscape_UFACharacter::DoJumpEnd()
 
 void ADungeonEscape_UFACharacter::Interact()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Interaction Action working!!"));
+	FVector Start = FirstPersonCameraComponent->GetComponentLocation();
+	FVector End = Start + FirstPersonCameraComponent->GetForwardVector() * MaxInteractionDistance;
+	DrawDebugLine(GetWorld(), Start, End, FColor::Blue, false, 5.0f);
+
+	FCollisionShape InteractionSphere = FCollisionShape::MakeSphere(InteractionSphereRadius);
+	DrawDebugSphere(GetWorld(), End, InteractionSphereRadius, 20, FColor::Green, false, 5.0f);
+
+	FHitResult HitResult;
+	bool HasHit = GetWorld()->SweepSingleByChannel(HitResult, Start, End, FQuat::Identity, ECC_GameTraceChannel2, InteractionSphere);
+
+	if (HasHit)
+	{
+		AActor *HitActor = HitResult.GetActor();
+
+		if (HitActor->ActorHasTag("CollectableItem"))
+		{
+			// Hit Actor is a collectable item
+			ACollectableItem *CollectableItem = Cast<ACollectableItem>(HitActor);
+			if (CollectableItem)
+			{
+				UE_LOG(LogTemp, Display, TEXT("CollectableItem Clicked on: %s"), *CollectableItem->GetItemName());
+				HeldItems.Add(CollectableItem->GetItemName());
+				CollectableItem->Destroy();
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Could not cast type ACollectableItem to %s"), *HitActor->GetActorNameOrLabel())
+			}
+		}
+		else if (HitActor->ActorHasTag("Lock"))
+		{
+			// Hit actor is a lock
+			ALock *LockActor = Cast<ALock>(HitActor); 
+			if (LockActor)
+			{
+				UE_LOG(LogTemp, Display, TEXT("Item for lock clicked on: %s"), *LockActor->GetKeyItemName());
+				if (!LockActor->GetIsKeyPlaced())
+				{
+					// if key is not placed, place it
+					int32 ItemRemoved = HeldItems.RemoveSingle(*LockActor->GetKeyItemName());
+					if (ItemRemoved)
+					{
+						// If we are holding GlassStatue place it
+						LockActor->SetIsKeyPlaced(true);
+					}
+					else
+					{
+						UE_LOG(LogTemp, Warning, TEXT("Key item not in inventory"));
+					}
+				}
+				else
+				{
+					HeldItems.Add(*LockActor->GetKeyItemName());
+					LockActor->SetIsKeyPlaced(false);
+				}
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Could not cast type ALock to %s"), *HitActor->GetActorNameOrLabel())
+			}
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No actor hit!"));
+	}
 }
